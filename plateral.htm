@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head><STYLE TYPE="text/css">
+<!--
+
+BODY{
+overflow-x:hidden;
+}
+
+.s1
+{
+  position  : absolute;
+  font-size : 10pt;
+  color     : blue;
+  visibility: hidden;
+}
+
+.s2
+{
+  position  : absolute;
+  font-size : 18pt;
+  color     : red;
+	visibility : hidden;
+}
+
+.s3
+{
+  position  : absolute;
+  font-size : 14pt;
+  color     : gold;
+	visibility : hidden;
+}
+
+.s4
+{
+  position  : absolute;
+  font-size : 12pt;
+  color     : lime;
+	visibility : hidden;
+}
+
+//-->
+</STYLE>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Untitled Document</title>
+<style type="text/css">
+<!--
+body,td,th {
+	color: #0456AC;
+}
+body {
+	background-color: #040204;
+}
+.style1 {
+	font-size: 14px;
+	font-style: italic;
+	font-weight: bold;
+}
+-->
+</style></head>
+
+<body class="style1">
+<p align="center" class="style1"><a href="pasatiempos.htm" target="mainFrame">PASATIEMPOS</a></p>
+<p align="center">&nbsp;</p>
+<p align="center"><strong><a href="tiwt.htm" target="mainFrame">OTRAS LIGAS</a></strong></p>
+<p align="center">&nbsp;</p>
+<p align="center"><strong><a href="audio.htm" target="mainFrame">AUDIOS</a></strong></p>
+<p align="center">&nbsp;</p>
+<p align="center"><strong><a href="videos.htm" target="mainFrame">VIDEOS</a></strong></p>
+<p align="center">&nbsp;</p>
+<p align="center"><strong><a href="contacto.htm" target="mainFrame">CONTACTO </a></strong></p>
+<p align="center">&nbsp;</p>
+<p align="center"><a href="drivers.htm" target="mainFrame">DRIVERS</a></p>
+<p align="center">&nbsp;</p>
+<p align="center"><a href="alarma.htm" target="mainFrame">ALARMA</a></p>
+<p align="center">&nbsp;</p>
+<p align="center"><a href="calendario.htm" target="mainFrame">CALENDARIO</a></p>
+<p align="center">&nbsp;</p>
+<p align="center"><a href="edad.htm" target="mainFrame">JUEGOS</a></p>
+</body><DIV ID="div1" CLASS="s1">*</DIV>
+<DIV ID="div2" CLASS="s2">*</DIV>
+<DIV ID="div3" CLASS="s3">*</DIV>
+<DIV ID="div4" CLASS="s4">*</DIV>
+
+<p align="center"><font face="arial" size="-2"></font><br>
+<font face="arial, helvetica" size="-2"><a href=""></a></font></p>
+
+<SCRIPT LANGUAGE="javascript" TYPE="text/javascript">
+
+/*
+Script by Mike McGrath- http://website.lineone.net/~mike_mcgrath
+Featured on JavaScript Kit (http://javascriptkit.com)
+For this and over 400+ free scripts, visit http://javascriptkit.com
+*/
+
+//Updated Feb 20th, 08 by JavaScriptKit.com: Script now compatible in IE7/FF 
+
+var standardbody=(document.compatMode=="CSS1Compat")? document.documentElement : document.body //create reference to common "body" across doctypes
+
+var nav = (!document.all || window.opera);
+var tmr = null;
+var spd = 50;
+var x = 0;
+var x_offset = 5;
+var y = 0;
+var y_offset = 15;
+
+document.onmousemove = get_mouse; 
+
+function get_mouse(e)
+{    
+  x = (nav) ? e.pageX : event.clientX+standardbody.scrollLeft;
+  y = (nav) ? e.pageY : event.clientY+standardbody.scrollTop;
+  x += x_offset;
+  y += y_offset;
+  beam(1);     
+}
+
+function beam(n)
+{
+  if(n<5)
+  {
+				document.getElementById('div'+n).style.top=y+'px'
+				document.getElementById('div'+n).style.left=x+'px'
+				document.getElementById('div'+n).style.visibility='visible'
+    n++;
+    tmr=setTimeout("beam("+n+")",spd);
+  }
+  else
+  {
+     clearTimeout(tmr);
+     fade(4);
+  }   
+} 
+
+function fade(n)
+{
+  if(n>0) 
+  {
+				document.getElementById('div'+n).style.visibility='hidden'
+    n--;
+    tmr=setTimeout("fade("+n+")",spd);
+  }
+  else clearTimeout(tmr);
+} 
+
+// -->
+</SCRIPT>
+</html>
